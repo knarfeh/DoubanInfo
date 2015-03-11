@@ -64,6 +64,13 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         'n4': rates[4],
         'n5': rates[5]
     }
+    rate_s_data = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
+        'n1': rates[1],
+        'n2': rates[2],
+        'n3': rates[3],
+        'n4': rates[4],
+        'n5': rates[5]
+    }
     tags = [(tag, [float(sum(count[4:]))/sum(count), float(count[5])/sum(count),  # 4 5星加起来占比，5星占比
             count[5], count[4], count[3], count[2], count[1]])
             for tag, count in tag_count.iteritems() if sum(count) > 3 and len(tag.strip()) > 0]
@@ -88,95 +95,69 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     <head>
         <meta charset="UTF-8" />
         <title>%(user)s Douban</title>
-        <script type="text/javascript" src="../ichart.1.2.min.js"></script>
+        <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
         <script type="text/javascript">
-        $(function(){
-            var rates1 = %(rates_s)s;
-            var month_data = [
-                {
-                    name : '次数',
-                    value:%(month_count)s,
-                    color:'#1f7e92',
-                    line_width:2
-                }
-            ];
-            new iChart.Column2D({
-                render : 'canvasRatingBar',
-                data: rates1,
-                title : '%(user)s的豆瓣评分',
-                width : 800,
-                height : 400,
-                animation : true,
-                animation_duration:800,
-                shadow : true,
-                shadow_blur : 2,
-                shadow_color : '#aaaaaa',
-                shadow_offsetx : 1,
-                shadow_offsety : 0,
-                coordinate:{
-                    background_color:'#fefefe',
-                    scale:[{
-                        position:'left'
-                    }]
-                }
-            }).draw();
-            new iChart.Pie2D({
-                render : 'canvasRatingPie',
-                data: rates1,
-                title : '%(user)s的豆瓣评分',
-                legend : {
-                    enable : true
-                },
-                sub_option : {
-                    label : {
-                        background_color:null,
-                        sign:false,
-                        padding:'0 4',
-                        border:{
-                            enable:false,
-                            color:'#666666'
-                        },
-                        fontsize:11,
-                        fontweight:600,
-                        color : '#4572a7'
-                    },
-                    border : {
-                        width : 2,
-                        color : '#ffffff'
-                    }
-                },
-                animation:true,
-                showpercent:true,
-                decimalsnum:2,
-                width : 800,
-                height : 400,
-                radius:140
-            }).draw();
-
-            new iChart.Area2D({
-                render : 'canvasRatingMonth',
-                data: month_data,
-                title : '每月看片数',
-                width : %(month_width)s,
-                height : 400,
-                coordinate:{background_color:'#edf8fa'},
-                sub_option:{
-                        smooth : true,
-                        hollow_inside:false,
-                        point_size:10
-                },
-                tip:{
-                    enable:true,
-                    shadow:true
-                },
-                labels:%(month_name)s
-            }).draw();
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
         });
 
-        </script>
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                    // 基于准备好的dom，初始化echarts图表
+                    var myChart = ec.init(document.getElementById('canvasRatingBar'));
+
+                    var option = {
+                        tooltip: {
+                            show: true
+                        },
+                        legend: {
+                            data:['52269090的豆瓣评分']
+                        },
+                        toolbox: {
+                            show : true,
+                            feature : {
+                                mark : {show: true},
+                                dataView : {show: true, readOnly: false},
+                                magicType : {show: true, type: ['line', 'bar']},
+                                restore : {show: true},
+                                saveAsImage : {show: true}
+                            }
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                data : ['一星', '二星', '三星', '四星', '五星']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value'
+                            }
+                        ],
+                        series : [
+                            {
+                                "name":"销量",
+                                "type":"bar",
+                                "data":%(rate_s_data)s
+                            }
+                        ]
+                    };
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(option);
+                }
+            );
+            </script>
     </head>
     <body>
-        <div id='canvasRatingBar'></div>
+        <div id='canvasRatingBar' style="height:400px; width:800px" ></div>
         <div id='canvasRatingPie'></div>
         <div id='canvasRatingMonth'></div>
         <h4>%(user)s喜欢的标签</h4>
@@ -196,10 +177,7 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
 </html>
     ''' % {
         'user': user,
-        'rates_s': rates_s,
-        'month_count': str(month_count),
-        'month_name': str(month_name),
-        'month_width': str(len(month_name)*20),
+        'rate_s_data': str(rate_s_data),
         'table': table
     }
     with open(os.path.join(filepath, user+'.html'), 'w') as output:
