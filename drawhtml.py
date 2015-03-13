@@ -126,7 +126,7 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                             show: true
                         },
                         legend: {
-                            data:['52269090的豆瓣评分']
+                            data:['%(user)s的豆瓣评分']
                         },
                         toolbox: {
                             show : true,
