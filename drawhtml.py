@@ -217,6 +217,8 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                     ]
                 };
                 pieChart.setOption(pieOption);
+
+
             }
         );
             </script>
