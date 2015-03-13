@@ -93,11 +93,11 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     <head>
         <meta charset="UTF-8" />
         <title>%(user)s Douban</title>
-        <script src="./echarts-2.2.0/build/dist/echarts.js"></script>
+        <script src="./echarts220/build/dist/echarts.js"></script>
         <script type="text/javascript">
         require.config({
             paths: {
-                echarts: './echarts-2.2.0/build/dist'
+                echarts: './echarts220/build/dist'
             }
         });
 
