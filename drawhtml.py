@@ -35,8 +35,6 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     month = start_month
     month_count = []
     month_name = []
-    # print "dates_count:"
-    # dates_count1 = sorted(dates_count)
     # print dates_count1
     while month <= end_month:
         m = month.strftime('%Y-%m')
@@ -64,7 +62,18 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         'n4': rates[4],
         'n5': rates[5]
     }
-    rate_s_data = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
+    rate_s_datat = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
+        'n1': rates[1],
+        'n2': rates[2],
+        'n3': rates[3],
+        'n4': rates[4],
+        'n5': rates[5]
+    }
+    rate_s_data = '''[[%(n1)s,'#a5c2d5'],
+    [%(n2)s,'#cbab4f'],
+    [%(n3)s,'#cbab4f'],
+    [%(n4)s,'#cbab4f'],
+    [%(n5)s,'#cbab4f']]''' % {
         'n1': rates[1],
         'n2': rates[2],
         'n3': rates[3],
@@ -95,11 +104,11 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     <head>
         <meta charset="UTF-8" />
         <title>%(user)s Douban</title>
-        <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+        <script src="./echarts-2.2.0/build/dist/echarts.js"></script>
         <script type="text/javascript">
         require.config({
             paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
+                echarts: './echarts-2.2.0/build/dist'
             }
         });
 
@@ -143,9 +152,17 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                         ],
                         series : [
                             {
-                                "name":"销量",
+                                "name":"评分",
                                 "type":"bar",
-                                "data":%(rate_s_data)s
+                                "data":%(rate_s_datat)s,
+                                itemStyle:{
+                                    normal:{
+                                        color: function (value){
+                                            return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6);
+                                        }
+                                    }
+                                }
+
                             }
                         ]
                     };
@@ -157,9 +174,9 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
             </script>
     </head>
     <body>
-        <div id='canvasRatingBar' style="height:400px; width:800px" ></div>
-        <div id='canvasRatingPie'></div>
-        <div id='canvasRatingMonth'></div>
+        <div id='canvasRatingBar' style="height:400px; width:800px;" ></div>
+        <div id='canvasRatingPie' style="height:400px; width:800px;></div>
+        <div id='canvasRatingMonth' style="height:400px; width:800px;></div>
         <h4>%(user)s喜欢的标签</h4>
         <table border="1">
         <tr>
@@ -177,8 +194,14 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
 </html>
     ''' % {
         'user': user,
+        'rate_s_datat': str(rate_s_datat),
         'rate_s_data': str(rate_s_data),
         'table': table
     }
+    print "rates_s:", rates_s
+    print "month_count:", str(month_count)    # 用来画折线图
+    print "month_name:", str(month_name)      # 用来画折线图
+    print "monthwidth:", str(len(month_name) * 20)
+
     with open(os.path.join(filepath, user+'.html'), 'w') as output:
         output.write(content)
