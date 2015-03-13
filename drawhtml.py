@@ -121,7 +121,6 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
             function (ec) {
                     // 基于准备好的dom，初始化echarts图表
                     var myChart = ec.init(document.getElementById('canvasRatingBar'));
-
                     var option = {
                         tooltip: {
                             show: true
@@ -158,11 +157,17 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                                 itemStyle:{
                                     normal:{
                                         color: function (value){
-                                            return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6);
+                                            return "#"+("00000"+((Math.random()*16777215
+                                            +0.5)>>0).toString(16)).slice(-6) ;
                                         }
                                     }
+                                },
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'},
+                                        {type : 'min', name: '最小值'}
+                                    ]
                                 }
-
                             }
                         ]
                     };

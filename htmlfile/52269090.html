@@ -1,0 +1,353 @@
+
+    <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>52269090 Douban</title>
+        <script src="./echarts-2.2.0/build/dist/echarts.js"></script>
+        <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: './echarts-2.2.0/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                    // 基于准备好的dom，初始化echarts图表
+                    var myChart = ec.init(document.getElementById('canvasRatingBar'));
+
+                    var option = {
+                        tooltip: {
+                            show: true
+                        },
+                        legend: {
+                            data:['52269090的豆瓣评分']
+                        },
+                        toolbox: {
+                            show : true,
+                            feature : {
+                                mark : {show: true},
+                                dataView : {show: true, readOnly: false},
+                                magicType : {show: true, type: ['line', 'bar']},
+                                restore : {show: true},
+                                saveAsImage : {show: true}
+                            }
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                data : ['一星', '二星', '三星', '四星', '五星']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value'
+                            }
+                        ],
+                        series : [
+                            {
+                                "name":"评分",
+                                "type":"bar",
+                                "data":[4, 2, 1, 5, 44 ],
+                                itemStyle:{
+                                    normal:{
+                                        color: function (value){
+                                            return "#"+("00000"+((Math.random()*16777215
+                                            +0.5)>>0).toString(16)).slice(-6) ;
+                                        }
+                                    }
+                                },
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'},
+                                        {type : 'min', name: '最小值'}
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(option);
+                }
+            );
+            </script>
+    </head>
+    <body>
+        <div id='canvasRatingBar' style="height:400px; width:800px;" ></div>
+        <div id='canvasRatingPie' style="height:400px; width:800px;></div>
+        <div id='canvasRatingMonth' style="height:400px; width:800px;></div>
+        <h4>52269090喜欢的标签</h4>
+        <table border="1">
+        <tr>
+          <td>标签</td>
+          <td>4，5星占比</td>
+          <td>5星</td>
+          <td>4星</td>
+          <td>3星</td>
+          <td>2星</td>
+          <td>1星</td>
+        </tr>
+        <tr>
+<td>韩语</td>
+<td>1.0</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>喜剧</td>
+<td>1.0</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>韩国</td>
+<td>1.0</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>日本</td>
+<td>1.0</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>日语</td>
+<td>1.0</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>法语</td>
+<td>1.0</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>苏菲·特纳</td>
+<td>1.0</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>奇幻</td>
+<td>1.0</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>英国</td>
+<td>1.0</td>
+<td>9</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>www.hbo.com</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>game-of-thrones</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>艾米莉亚·克拉克</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>权力的游戏</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>#</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>戴维·贝尼奥夫 David Benioff</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>伊萨克·亨普斯特德-怀特</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>悬疑</td>
+<td>0.916</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>犯罪</td>
+<td>0.9</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>冒险</td>
+<td>0.888</td>
+<td>7</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>英语</td>
+<td>0.878</td>
+<td>25</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>惊悚</td>
+<td>0.866</td>
+<td>11</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>0.846</td>
+<td>11</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>美国</td>
+<td>0.84</td>
+<td>18</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>爱情</td>
+<td>0.823</td>
+<td>14</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>剧情</td>
+<td>0.806</td>
+<td>23</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>科幻</td>
+<td>0.7</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>汉语普通话</td>
+<td>0.571</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>中国大陆</td>
+<td>0.571</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+
+        </table>
+    </body>
+</html>
+    
