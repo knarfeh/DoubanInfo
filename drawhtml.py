@@ -50,11 +50,11 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     # print month_count
     # print month_name
     rates_s = '''[
-        {name: '1星',value : %(n1)s,color:'#a5c2d5'},
-        {name : '2星',value : %(n2)s,color:'#cbab4f'},
-        {name : '3星',value : %(n3)s,color:'#76a871'},
-        {name : '4星',value : %(n4)s,color:'#9f7961'},
-        {name : '5星',value : %(n5)s,color:'#a56f8f'}
+        {value : %(n1)s, name: '1星'},
+        {value : %(n2)s, name : '2星'},
+        {value : %(n3)s, name : '3星'},
+        {value : %(n4)s, name : '4星'},
+        {value : %(n5)s, name : '5星'}
     ]''' % {
         'n1': rates[1],
         'n2': rates[2],
@@ -62,18 +62,7 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         'n4': rates[4],
         'n5': rates[5]
     }
-    rate_s_datat = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
-        'n1': rates[1],
-        'n2': rates[2],
-        'n3': rates[3],
-        'n4': rates[4],
-        'n5': rates[5]
-    }
-    rate_s_data = '''[[%(n1)s,'#a5c2d5'],
-    [%(n2)s,'#cbab4f'],
-    [%(n3)s,'#cbab4f'],
-    [%(n4)s,'#cbab4f'],
-    [%(n5)s,'#cbab4f']]''' % {
+    rate_s_data_num = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
         'n1': rates[1],
         'n2': rates[2],
         'n3': rates[3],
@@ -116,70 +105,125 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         require(
             [
                 'echarts',
-                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar',  // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/pie'
             ],
             function (ec) {
-                    // 基于准备好的dom，初始化echarts图表
-                    var myChart = ec.init(document.getElementById('canvasRatingBar'));
-                    var option = {
-                        tooltip: {
-                            show: true
-                        },
-                        legend: {
-                            data:['%(user)s的豆瓣评分']
-                        },
-                        toolbox: {
-                            show : true,
-                            feature : {
-                                mark : {show: true},
-                                dataView : {show: true, readOnly: false},
-                                magicType : {show: true, type: ['line', 'bar']},
-                                restore : {show: true},
-                                saveAsImage : {show: true}
-                            }
-                        },
-                        xAxis : [
-                            {
-                                type : 'category',
-                                data : ['一星', '二星', '三星', '四星', '五星']
-                            }
-                        ],
-                        yAxis : [
-                            {
-                                type : 'value'
-                            }
-                        ],
-                        series : [
-                            {
-                                "name":"评分",
-                                "type":"bar",
-                                "data":%(rate_s_datat)s,
-                                itemStyle:{
-                                    normal:{
-                                        color: function (value){
-                                            return "#"+("00000"+((Math.random()*16777215
-                                            +0.5)>>0).toString(16)).slice(-6) ;
-                                        }
+                // 基于准备好的dom，初始化echarts图表
+                var barChart = ec.init(document.getElementById('canvasRatingBar'));
+                var barOption = {
+                    title:{
+                        text:'%(user)s的豆瓣评分',
+                        x:'center'
+                    },
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        x:'left',
+                        data:['%(user)s的豆瓣评分']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ['1星', '2星', '3星', '4星', '5星']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"评分",
+                            "type":"bar",
+                            "data":%(rate_s_data_num)s,
+                            itemStyle:{
+                                normal:{
+                                    color: function (value){
+                                        return "#"+("00000"+((Math.random()*16777215
+                                        +0.5)>>0).toString(16)).slice(-6) ;
                                     }
-                                },
-                                markPoint : {
-                                    data : [
-                                        {type : 'max', name: '最大值'},
-                                        {type : 'min', name: '最小值'}
-                                    ]
                                 }
+                            },
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
                             }
-                        ]
-                    };
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                barChart.setOption(barOption);
 
-                    // 为echarts对象加载数据
-                    myChart.setOption(option);
-                }
-            );
+                var pieChart = ec.init(document.getElementById('canvasRatingPie'));
+                var pieOption = {
+                    title : {
+                        text:'%(user)s的豆瓣评分分布图',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%%)"
+                    },
+                    legend: {
+                        orient : 'vertical',
+                        x : 'left',
+                        data:['1星','2星','3星','4星','5星']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {
+                                show: true,
+                                type: ['pie', 'funnel'],
+                                option: {
+                                    funnel: {
+                                        x: '25%%',
+                                        width: '50%%',
+                                        funnelAlign: 'left',
+                                        max: 1548
+                                    }
+                                }
+                            },
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    series : [
+                        {
+                            name:'%(user)s的豆瓣评分',
+                            type:'pie',
+                            radius : '55%%',
+                            center: ['50%%', '60%%'],
+                            data: %(rates_s)s
+                        }
+                    ]
+                };
+                pieChart.setOption(pieOption);
+            }
+        );
             </script>
     </head>
     <body>
         <div id='canvasRatingBar' style="height:400px; width:800px;" ></div>
+        <br><br><br><br><br><br><br><br>
         <div id='canvasRatingPie' style="height:400px; width:800px;></div>
         <div id='canvasRatingMonth' style="height:400px; width:800px;></div>
         <h4>%(user)s喜欢的标签</h4>
@@ -199,8 +243,8 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
 </html>
     ''' % {
         'user': user,
-        'rate_s_datat': str(rate_s_datat),
-        'rate_s_data': str(rate_s_data),
+        'rate_s_data_num': str(rate_s_data_num),
+        'rates_s': str(rates_s),
         'table': table
     }
     print "rates_s:", rates_s
