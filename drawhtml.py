@@ -223,6 +223,9 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                         data:['观看电影数'],
                         x: 'left',
                     },
+                    tooltip : {
+                        trigger: 'item'
+                    },
                     toolbox: {
                         show : true,
                         feature : {
@@ -342,8 +345,8 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
                             useWorker: false,
                             minRadius : 15,
                             maxRadius : 30,
-                            gravity: 2.2,
-                            scaling: 1.1,
+                            gravity: 3,
+                            scaling: 1.2,
                             roam: 'move',
                             links:[],
                             nodes: %(item_nodes)s

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>52269090 Douban</title>
+        <title>61303280 Douban</title>
         <script src="./echarts220/build/dist/echarts.js"></script>
         <script type="text/javascript">
         require.config({
@@ -26,7 +26,7 @@
                 var barChart = ec.init(document.getElementById('canvasRatingBar'));
                 var barOption = {
                     title:{
-                        text:'52269090的豆瓣评分',
+                        text:'61303280的豆瓣评分',
                         x:'center'
                     },
                     tooltip : {
@@ -35,7 +35,7 @@
                     },
                     legend: {
                         x:'left',
-                        data:['52269090的豆瓣评分']
+                        data:['61303280的豆瓣评分']
                     },
                     toolbox: {
                         show : true,
@@ -60,9 +60,9 @@
                     ],
                     series : [
                         {
-                            "name":"52269090的豆瓣评分",
+                            "name":"61303280的豆瓣评分",
                             "type":"bar",
-                            "data":[4, 2, 1, 5, 44 ],
+                            "data":[3, 5, 58, 144, 134 ],
                             itemStyle:{
                                 normal:{
                                     color: function (value){
@@ -86,7 +86,7 @@
                 var pieChart = ec.init(document.getElementById('canvasRatingPie'));
                 var pieOption = {
                     title : {
-                        text:'52269090的豆瓣评分分布图',
+                        text:'61303280的豆瓣评分分布图',
                         x:'center'
                     },
                     tooltip : {
@@ -122,16 +122,16 @@
                     calculable : true,
                     series : [
                         {
-                            name:'52269090的豆瓣评分',
+                            name:'61303280的豆瓣评分',
                             type:'pie',
                             radius : '55%',
                             center: ['50%', '60%'],
                             data: [
-        {value : 4, name: '1星'},
-        {value : 2, name : '2星'},
-        {value : 1, name : '3星'},
-        {value : 5, name : '4星'},
-        {value : 44, name : '5星'}
+        {value : 3, name: '1星'},
+        {value : 5, name : '2星'},
+        {value : 58, name : '3星'},
+        {value : 144, name : '4星'},
+        {value : 134, name : '5星'}
     ]
                         }
                     ]
@@ -141,7 +141,7 @@
                 var lineChart = ec.init(document.getElementById('canvasRatingMonth'));
                 var lineOption = {
                     title: {
-                        text: '52269090的观影数量分布',
+                        text: '61303280的观影数量分布',
                         x: 'center'
                     },
                     legend: {
@@ -166,7 +166,7 @@
                         {
                             type : 'category',
                             boundaryGap : false,
-                            data : ['', '12-12', '', '', '13-03', '', '', '13-06', '', '', '13-09', '', '', '13-12', '', '', '14-03', '', '', '14-06', '', '', '14-09', '', '', '14-12', '', '']
+                            data : ['', '12-09', '', '', '12-12', '', '', '13-03', '', '', '13-06', '', '', '13-09', '', '', '13-12', '', '', '14-03', '', '', '14-06', '', '', '14-09', '', '', '14-12', '', '', '15-03']
                         }
                     ],
                     yAxis : [
@@ -179,7 +179,7 @@
                     ],
                     series: [
                         {
-                            name: '52269090的观看电影数量分布',
+                            name: '61303280的观看电影数量分布',
                             type:'line',
                             symbol:'emptyCircle',
                             symbolSize: 5,
@@ -209,7 +209,7 @@
                                     {type : 'average', name: '平均值'}
                                 ]
                             },
-                            data: [2, 4, 1, 1, 0, 1, 0, 0, 4, 0, 0, 0, 0, 2, 5, 1, 4, 2, 4, 7, 0, 2, 0, 0, 7, 5, 1, 3]
+                            data: [110, 5, 8, 11, 22, 21, 6, 2, 33, 3, 1, 14, 48, 13, 2, 0, 0, 4, 8, 4, 4, 12, 4, 6, 5, 1, 1, 0, 1, 4, 1, 2]
                         }
                     ]
                 };
@@ -218,7 +218,7 @@
                 var forceChart = ec.init(document.getElementById('canvasFavItem'));
                 var forceOption = {
                     title : {
-                        text: '52269090的标签',
+                        text: '61303280的标签',
                         x:'center'
                     },
                     tooltip : {
@@ -274,7 +274,7 @@
                             scaling: 1.2,
                             roam: 'move',
                             links:[],
-                            nodes: [{name:'韩语',value:100.0},{name:'喜剧',value:100.0},{name:'韩国',value:100.0},{name:'日本',value:100.0},{name:'日语',value:100.0},{name:'法语',value:100.0},{name:'苏菲·特纳',value:100.0},{name:'奇幻',value:100.0},{name:'英国',value:100.0},{name:'www.hbo.com',value:100.0},{name:'game-of-thrones',value:100.0},{name:'艾米莉亚·克拉克',value:100.0},{name:'权力的游戏',value:100.0},{name:'#',value:100.0},{name:'戴维·贝尼奥夫 David Benioff',value:100.0},{name:'伊萨克·亨普斯特德-怀特',value:100.0},{name:'悬疑',value:91.66},{name:'犯罪',value:90.0},{name:'冒险',value:88.88},{name:'英语',value:87.87},{name:'惊悚',value:86.66},{name:'动作',value:84.61},{name:'美国',value:84.0},{name:'爱情',value:82.35},{name:'剧情',value:80.64},{name:'科幻',value:70.0},{name:'汉语普通话',value:57.14},{name:'中国大陆',value:57.14}]
+                            nodes: [{name:'programmes',value:100.0},{name:'马丁·弗瑞曼',value:100.0},{name:'凯瑟琳·帕金森',value:100.0},{name:'克里斯·奥多德',value:100.0},{name:'www.channel4.com',value:100.0},{name:'理查德·艾欧阿德',value:100.0},{name:'歌舞',value:100.0},{name:'IT狂人',value:100.0},{name:'本尼迪克特·康伯巴奇',value:100.0},{name:'鲁珀特·格雷夫斯',value:100.0},{name:'Ben Fuller',value:100.0},{name:'罗宾·怀特',value:100.0},{name:'凯文·史派西',value:100.0},{name:'格雷厄姆·莱恩汉 Graham Linehan',value:100.0},{name:'大卫·芬奇',value:100.0},{name:'约翰·赫特',value:100.0},{name:'保罗·沃克',value:100.0},{name:'克里斯托弗·诺兰 Christopher Nolan',value:100.0},{name:'堺雅人',value:100.0},{name:'克里斯蒂安·贝尔',value:100.0},{name:'新垣结衣',value:100.0},{name:'乔丹娜·布鲁斯特',value:100.0},{name:'泰瑞斯·吉布森',value:100.0},{name:'legal-high',value:100.0},{name:'詹姆斯·弗雷',value:100.0},{name:'凯文·苏斯曼',value:100.0},{name:'Steve Kloves',value:100.0},{name:'J.K. Rowling',value:100.0},{name:'威尔·惠顿',value:100.0},{name:'生濑胜久',value:100.0},{name:'小池荣子',value:100.0},{name:'梅丽莎·劳奇',value:100.0},{name:'励志',value:100.0},{name:'石川淳一',value:100.0},{name:'www.fujitv.co.jp',value:100.0},{name:'克里斯托弗·诺兰',value:100.0},{name:'哈利波特',value:100.0},{name:'纪录片',value:100.0},{name:'运动',value:100.0},{name:'本·金斯利',value:100.0},{name:'2014',value:100.0},{name:'布拉德·皮特',value:100.0},{name:'凯特·玛拉',value:100.0},{name:'泰语',value:100.0},{name:'www.harrypotter.co.uk',value:100.0},{name:'张国荣',value:100.0},{name:'约翰尼·德普',value:100.0},{name:'印度',value:100.0},{name:'杰克·科比 Jack Kirby',value:100.0},{name:'米歇尔·罗德里格兹',value:100.0},{name:'肯·斯托特',value:100.0},{name:'黄渤',value:100.0},{name:'澳大利亚',value:100.0},{name:'格温妮斯·帕特洛',value:100.0},{name:'斯坦·李 Stan Lee',value:100.0},{name:'加里·奥德曼',value:100.0},{name:'安妮·海瑟薇',value:100.0},{name:'中国大陆)',value:100.0},{name:'www.hbo.com',value:100.0},{name:'约翰·雷吉扎莫',value:100.0},{name:'权力的游戏',value:100.0},{name:'丹尼斯·利瑞',value:100.0},{name:'劳伦斯·菲什伯恩',value:100.0},{name:'克拉克·格雷格',value:100.0},{name:'伊萨克·亨普斯特德-怀特',value:100.0},{name:'凯瑞-安·莫斯',value:100.0},{name:'HBO',value:100.0},{name:'#',value:100.0},{name:'吕克·贝松 Luc Besson',value:100.0},{name:'汤姆·汉克斯',value:100.0},{name:'game-of-thrones',value:100.0},{name:'小罗伯特·唐尼',value:100.0},{name:'斯蒂芬·金 Stephen King',value:100.0},{name:'艾米莉亚·克拉克',value:100.0},{name:'保罗·贝坦尼',value:100.0},{name:'彼特·丁拉基',value:100.0},{name:'卡洛斯·沙尔丹哈',value:100.0},{name:'2005',value:100.0},{name:'塞缪尔·杰克逊',value:100.0},{name:'哈莉·贝瑞',value:100.0},{name:'安娜·帕奎因',value:100.0},{name:'帕特里克·斯图尔特',value:100.0},{name:'杰克·吉伦哈尔',value:100.0},{name:'克里斯·埃文斯',value:100.0},{name:'心理',value:100.0},{name:'家庭',value:95.83},{name:'西班牙语',value:95.0},{name:'美剧',value:91.66},{name:'加拿大',value:91.66},{name:'经典',value:90.90},{name:'日本',value:88.88},{name:'伊恩·麦克莱恩',value:88.88},{name:'shows',value:87.5},{name:'周星驰',value:87.5},{name:'雨果·维文',value:87.5},{name:'摩根·弗里曼',value:85.71},{name:'生活大爆炸',value:85.71},{name:'西蒙·赫尔伯格',value:85.71},{name:'查克·罗瑞 Chuck Lorre',value:85.71},{name:'吉姆·帕森斯',value:85.71},{name:'昆瑙·内亚',value:85.71},{name:'葡萄牙语',value:85.71},{name:'2010',value:85.71},{name:'法语',value:85.71},{name:'拉尔夫·费因斯',value:85.71},{name:'英国',value:84.37},{name:'比尔·布拉迪 Bill Prady',value:83.33},{name:'文艺',value:83.33},{name:'迈克尔·凯恩',value:83.33},{name:'史诗',value:83.33},{name:'梁朝伟',value:83.33},{name:'www.cbs.com',value:83.33},{name:'big_bang_theory',value:83.33},{name:'海伦娜·伯翰·卡特',value:83.33},{name:'音乐',value:83.33},{name:'奥兰多·布鲁姆',value:83.33},{name:'意大利',value:83.33},{name:'希里安·墨菲',value:83.33},{name:'杰森·斯坦森',value:83.33},{name:'同性',value:83.33},{name:'戴维·贝尼奥夫 David Benioff',value:83.33},{name:'悬疑',value:81.96},{name:'2004',value:81.81},{name:'日语',value:81.25},{name:'意大利语',value:81.25},{name:'剧情',value:81.05},{name:'冒险',value:80.51},{name:'青春',value:80.0},{name:'安迪·瑟金斯',value:80.0},{name:'赵薇',value:80.0},{name:'彼得·杰克逊',value:80.0},{name:'范·迪塞尔',value:80.0},{name:'凯莉·库柯',value:80.0},{name:'盖·皮尔斯',value:80.0},{name:'中国',value:80.0},{name:'普通话',value:80.0},{name:'斯嘉丽·约翰逊',value:80.0},{name:'艾伦·佩吉',value:80.0},{name:'汤米·李·琼斯',value:80.0},{name:'2000',value:80.0},{name:'X战警',value:80.0},{name:'邹兆龙',value:80.0},{name:'方中信',value:80.0},{name:'古天乐',value:80.0},{name:'英语',value:79.42},{name:'美国',value:78.66},{name:'战争',value:78.57},{name:'爱情',value:78.57},{name:'艾伦·瑞克曼',value:77.77},{name:'休·杰克曼',value:77.77},{name:'科幻',value:77.61},{name:'犯罪',value:77.33},{name:'喜剧',value:76.82},{name:'动画',value:75.86},{name:'惊悚',value:75.72},{name:'动作',value:75.63},{name:'奇幻',value:75.47},{name:'弗兰·威尔士 Fran Walsh',value:75.0},{name:'凯特·布兰切特',value:75.0},{name:'莫文蔚',value:75.0},{name:'彼得·杰克逊 Peter Jackson',value:75.0},{name:'韩语',value:75.0},{name:'政治',value:75.0},{name:'1999',value:75.0},{name:'陈冠希',value:75.0},{name:'邦妮·怀特',value:75.0},{name:'鲁伯特·格林特',value:75.0},{name:'艾玛·沃森',value:75.0},{name:'丹尼尔·雷德克里夫',value:75.0},{name:'印地语',value:75.0},{name:'迈克尔·法斯宾德',value:75.0},{name:'伊利亚·伍德',value:75.0},{name:'克里斯汀·韦格',value:75.0},{name:'克里斯·摩根 Chris Morgan',value:75.0},{name:'林诣彬',value:75.0},{name:'杜汶泽',value:75.0},{name:'马克·森卓斯基',value:75.0},{name:'马伊姆·拜力克',value:75.0},{name:'德国',value:75.0},{name:'传记',value:75.0},{name:'恐怖',value:75.0},{name:'漫画改编',value:75.0},{name:'谷德昭',value:75.0},{name:'陶虹',value:75.0},{name:'乌尔都语',value:75.0},{name:'苏格兰盖尔语',value:75.0},{name:'斯坦利·库布里克',value:75.0},{name:'马克·鲁弗洛',value:75.0},{name:'斯特兰·斯卡斯加德',value:75.0},{name:'叶璇',value:75.0},{name:'法米克·詹森',value:75.0},{name:'迈克尔·道格拉斯',value:75.0},{name:'法国',value:73.91},{name:'美国电影',value:73.68},{name:'2011',value:73.33},{name:'粤语',value:72.97},{name:'俄语',value:72.72},{name:'汉语普通话',value:72.58},{name:'朱丽·沃特斯',value:71.42},{name:'汤姆·费尔顿',value:71.42},{name:'玛吉·史密斯',value:71.42},{name:'中国大陆',value:68.08},{name:'2013',value:66.66},{name:'约翰尼·盖尔克奇',value:66.66},{name:'吴孟达',value:66.66},{name:'新西兰',value:66.66},{name:'2007',value:66.66},{name:'2001',value:66.66},{name:'庄文强',value:66.66},{name:'麦兆辉',value:66.66},{name:'迈克尔·刚本',value:66.66},{name:'香港',value:66.66},{name:'警匪',value:66.66},{name:'2006',value:66.66},{name:'吴彦祖',value:66.66},{name:'魔幻',value:63.63},{name:'历史',value:63.63},{name:'拉丁语',value:62.5},{name:'威尔·史密斯',value:62.5},{name:'2012',value:61.53},{name:'2009',value:61.53},{name:'搞笑',value:60.0},{name:'德语',value:60.0},{name:'刘嘉玲',value:60.0},{name:'2003',value:60.0},{name:'2008',value:57.14},{name:'台湾',value:57.14},{name:'黄秋生',value:50.0},{name:'2002',value:50.0},{name:'武侠',value:50.0},{name:'徐锦江',value:50.0},{name:'大卫·叶茨',value:50.0},{name:'古装',value:50.0},{name:'1998',value:50.0},{name:'周迅',value:50.0},{name:'短片',value:46.15},{name:'刘德华',value:42.85},{name:'香港电影',value:40.0},{name:'罗伯特·帕丁森',value:40.0},{name:'王晶',value:40.0},{name:'动画短片',value:37.5},{name:'林家栋',value:25.0},{name:'泰勒·洛特纳',value:25.0},{name:'妮基·瑞德',value:25.0},{name:'阿什丽·格林尼',value:25.0},{name:'Joaquim Dos Santos',value:25.0},{name:'成龙',value:20.0},{name:'DC',value:20.0},{name:'克里斯汀·斯图尔特',value:20.0}]
                         }
                     ]
                 };
