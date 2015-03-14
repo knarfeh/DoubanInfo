@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa507cca-698f-43ee-b08d-ad1cc7b55ef1" name="Default" comment="done for now">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tooFew.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tooMany.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/10.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/11.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/12.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/13.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/14.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/15.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/16.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/17.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/18.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/19.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/20.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/21.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/22.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/23.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/24.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/6.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/7.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/8.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htmlfile/61303280/9.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htmlfile/52269090.html" afterPath="$PROJECT_DIR$/htmlfile/52269090.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Douban.py" afterPath="$PROJECT_DIR$/Douban.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drawhtml.py" afterPath="$PROJECT_DIR$/drawhtml.py" />
+    <list default="true" id="aa507cca-698f-43ee-b08d-ad1cc7b55ef1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="doubanuserinfo2chart.iws" />
@@ -509,7 +478,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426305021894</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add doc and some example file">
+      <created>1426309971151</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1426309971152</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -580,7 +555,8 @@
     <MESSAGE value="add random color" />
     <MESSAGE value="add pie" />
     <MESSAGE value="done for now" />
-    <option name="LAST_COMMIT_MESSAGE" value="done for now" />
+    <MESSAGE value="add doc and some example file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add doc and some example file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
