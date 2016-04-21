@@ -1,13 +1,19 @@
-# doubanuserinfo2chart
+# DoubanInfo
 
-一个初学者的玩具，学习使用BeautifulSoup.py和echarts。
-根据豆瓣用户的id，分析该用户的信息，输出图表。
+分析豆瓣用户数据,利用[百度ECharts]将数据可视化
 
 
 ## TODO
- * 提取更多信息
- * 加强排版
- * 需要解决标签过多或标签过少的情况，如：
-  ![标签太多](./doc/tooMany.png)
+ * 分析用户更多信息,例如读书,电影
+ * 改进页面布局
+ * 需要解决标签过多或标签过少的情况，
+ 
+ 如：
+  ![标签太多](./doc/tooMany.png)  
   ![标签太少](./doc/Few.png)
-   ·
+  
+ * ...
+
+## License
+
+[MIT license](./LICENSE)
