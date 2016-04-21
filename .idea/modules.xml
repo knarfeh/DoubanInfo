@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/doubanuserinfo2chart.iml" filepath="$PROJECT_DIR$/.idea/doubanuserinfo2chart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DoubanInfo.iml" filepath="$PROJECT_DIR$/.idea/DoubanInfo.iml" />
     </modules>
   </component>
 </project>
