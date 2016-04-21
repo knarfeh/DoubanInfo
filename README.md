@@ -1,6 +1,6 @@
 # DoubanInfo
 
-分析豆瓣用户数据,利用[百度ECharts]将数据可视化
+分析豆瓣用户数据,利用[百度ECharts](http://echarts.baidu.com/echarts2/index.html)将数据可视化
 
 
 ## TODO
