@@ -1,32 +1,24 @@
+#!/user/bin/env python2
 # -*- coding: utf-8 -*-
-
-# ######################################################
-# File Name   :    drawhtml.py
-# Description :    输出目标网页
-# Author      :    Frank
-# Date        :    2014.03.08
-# ######################################################
-
 
 import datetime
 import os
 from dateutil.relativedelta import relativedelta
 
 
-def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
+def draw_html(dates, rates, tag_count, user, filepath='htmlfile/'):
     """
     输出带图表的html文件
     :param dates:  观看时间的列表， 例如：[('2015-02-22', '5'), ('2013-07-12', '3')]
     :param rates:  评价列表， 例如：[0, 4, 2, 1, 5, 44]
     :param tag_count: 字典，例如：{'': [0, 1, 0, 0, 0, 7],}
     :param user: 用户Id
+    :param filepath:
     :return:
     """
     dates = sorted(dates)
-    # print dates
     start_month = datetime.datetime.strptime(dates[0][0][:-3], '%Y-%m')  # 开始记录观影的时间
     end_month = datetime.datetime.strptime(dates[-1][0][:-3], '%Y-%m')   # 结束记录观影的时间
-    # print start_month, end_month
     dates_count = {}
     for date in dates:
         if date[0][:-3] not in dates_count:
@@ -35,7 +27,6 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     month = start_month
     month_count = []
     month_name = []
-    # print dates_count1
     while month <= end_month:
         m = month.strftime('%Y-%m')
         if m in dates_count:
@@ -47,8 +38,6 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         else:
             month_name.append('')
         month = month + relativedelta(months=1)
-    # print month_count
-    # print month_name
     rates_s = '''[
         {value : %(n1)s, name: '1星'},
         {value : %(n2)s, name : '2星'},
@@ -56,11 +45,11 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         {value : %(n4)s, name : '4星'},
         {value : %(n5)s, name : '5星'}
     ]''' % {
-        'n1': rates[1],
-        'n2': rates[2],
-        'n3': rates[3],
-        'n4': rates[4],
-        'n5': rates[5]
+        'n1': str(rates[1]),
+        'n2': str(rates[2]),
+        'n3': str(rates[3]),
+        'n4': str(rates[4]),
+        'n5': str(rates[5])
     }
     rate_s_data_num = '''[%(n1)s, %(n2)s, %(n3)s, %(n4)s, %(n5)s ]''' % {
         'n1': rates[1],
@@ -69,27 +58,26 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         'n4': rates[4],
         'n5': rates[5]
     }
-    tags = [(tag, [float(sum(count[4:]))/sum(count), float(count[5])/sum(count),  # 4 5星加起来占比，5星占比
+    # 4 5星加起来占比，5星占比
+    tags = [(tag, [float(sum(count[4:]))/sum(count), float(count[5])/sum(count),
             count[5], count[4], count[3], count[2], count[1]])
             for tag, count in tag_count.iteritems() if sum(count) > 3 and len(tag.strip()) > 0]
     tags = sorted(tags, key=lambda x: x[1], reverse=True)
-    # print tags
 
     item_nodes = '['
     item_nodes += ','.join("{name:'" + tag[0] + "',value:"+str(100*float(tag[1][0]))[:5]+"}" for tag in tags)
     item_nodes += ']'
     print item_nodes
-    content = '''
-    <!DOCTYPE html>
+    content = '''<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>%(user)s Douban</title>
-        <script src="./echarts220/build/dist/echarts.js"></script>
+        <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
         <script type="text/javascript">
         require.config({
             paths: {
-                echarts: './echarts220/build/dist'
+                echarts: 'http://echarts.baidu.com/build/dist'
             }
         });
 
@@ -367,8 +355,7 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
         <br><br><br><br><br>
         <div id='canvasFavItem' style="height:800px; width:1000px;"></div>
     </body>
-</html>
-    ''' % {
+</html>''' % {
         'user': user,
         'rate_s_data_num': str(rate_s_data_num),
         'rates_s': str(rates_s),
@@ -382,4 +369,4 @@ def drawHTML(dates, rates, tag_count, user, filepath='htmlfile/'):
     # print "monthwidth:", str(len(month_name) * 20)
 
     with open(os.path.join(filepath, user+'.html'), 'w') as output:
-        output.write(content)
+        output.write(str(content))

@@ -1,16 +1,11 @@
+#!/user/bin/env python2
 # -*- coding: utf-8 -*-
 
-# ######################################################
-# File Name   :    analyzehtml.py
-# Description :    将根据爬取的豆瓣网页解析，返回结果
-# Author      :    Frank
-# Date        :    2014.03.08
-# ######################################################
 
 import os
 import re
 from BeautifulSoup import BeautifulSoup
-from drawhtml import drawHTML
+from drawhtml import draw_html
 
 
 def analyze(user='61303280', filepath='htmlfile/'):
@@ -22,7 +17,7 @@ def analyze(user='61303280', filepath='htmlfile/'):
     """
     tag_count = {}
     dates = []
-    rates = [0 for i in xrange(6)]
+    rates = [0 for _ in xrange(6)]
     for doubanHtml in os.listdir(os.path.join(filepath, user)):
         with open(os.path.join(filepath, user, doubanHtml), 'r') as fileopend:
             content = fileopend.read()
@@ -43,8 +38,7 @@ def analyze(user='61303280', filepath='htmlfile/'):
                 if tags:
                     tags = str(tags.string.encode('utf8', 'ignore'))
                     tags = set([tag for tag in tags.split()
-                                if '标签' not in tag
-                                and '标签'.decode('utf8').encode('gbk') not in tag])
+                                if '标签' not in tag and '标签'.decode('utf8').encode('gbk') not in tag])
                 else:
                     tags = set()
                 if len(tags) != 0:
@@ -56,7 +50,7 @@ def analyze(user='61303280', filepath='htmlfile/'):
                 rates[int(rate)] += 1
                 for tag in tags:
                     if tag not in tag_count:
-                        tag_count[tag] = [0 for i in xrange(6)]
+                        tag_count[tag] = [0 for _ in xrange(6)]
                     tag_count[tag][int(rate)] += 1    # 存储这个tag打rate（1-5）的次数有多少次
     # print tag_count
 
@@ -79,4 +73,4 @@ def analyze(user='61303280', filepath='htmlfile/'):
     #     for tag in tags:
     #         f.write(tag[0]+'\t'+'\t'.join(str(i) for i in tag[1])+'\n')
 
-    drawHTML(dates, rates, tag_count, user, filepath)
+    draw_html(dates, rates, tag_count, user, filepath)
